@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8" />
+        <title>HTML & Javascript</title>
+    </head>
+    <body>
+        <h1>Todo - list</h1>
+        <input type="text" id="new-item" placeholder="input dosomething" /> <button onclick="addTodo()">add</button>
+        <ul id="todo-list-map">
+         
+        </ul>
+        <script type="text/javascript">
+            var todo = [
+                'Haircut JS',
+                'Lunch with Sora JS',
+                'Dinner with Maria JS',
+                'Cook tomorow JS'
+            ];
+
+
+            function addTodo(){
+                // get text from inbox
+                var newTodo = document.getElementById("new-item");
+                var newText = newTodo.value;
+                if(newText){
+                    todo.push(newText);
+                }
+                
+                render();
+                newTodo.value = '';
+            }
+
+            function deleteTodo(a){
+                var removeLi = document.getElementById('li-map-'+a+'');
+                var xxx = removeLi.value
+                todo.splice(a,1);
+                render();
+            }
+
+            // list by map arr---------------------------------------------------------------------
+            function render(){
+                var contenL1 = document.getElementById('todo-list-map');
+            var arrTodoHtml =todo.map(function(item,i){
+                return '<li id ="li-map-'+i+'">' + item + '</li>' + '<button onclick="deleteTodo('+i+')">Delete</button>';
+            });
+            var content = arrTodoHtml.join('');
+            contenL1.innerHTML=content;
+            }
+            render();           
+
+        </script>
+    </body>
+</html>
