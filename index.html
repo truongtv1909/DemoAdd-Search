@@ -8,26 +8,32 @@
         <h1>Todo - list</h1>
         <input type="text" id="new-item" placeholder="input dosomething" /> <button onclick="addTodo()">add</button>
         <ul id="todo-list-map">
-         
         </ul>
+
         <script type="text/javascript">
-            var todo = [
-                'Haircut JS',
-                'Lunch with Sora JS',
-                'Dinner with Maria JS',
-                'Cook tomorow JS'
-            ];
-
-
+        var newTodo = document.getElementById("new-item");
+            var keytodo="keytodo";
+      
+            var todoString = sessionStorage.getItem(keytodo);
+            if(todoString){
+                var todo = JSON.parse(todoString);
+            }else{
+                var todo = [];
+            }
+            
+            
             function addTodo(){
                 // get text from inbox
-                var newTodo = document.getElementById("new-item");
+                
                 var newText = newTodo.value;
+               
                 if(newText){
                     todo.push(newText);
                 }
                 
                 render();
+                
+                sessionStorage.setItem(keytodo,JSON.stringify(todo));
                 newTodo.value = '';
             }
 
@@ -35,6 +41,7 @@
                 var removeLi = document.getElementById('li-map-'+a+'');
                 var xxx = removeLi.value
                 todo.splice(a,1);
+                sessionStorage.setItem(keytodo,JSON.stringify(todo));
                 render();
             }
 
@@ -42,7 +49,7 @@
             function render(){
                 var contenL1 = document.getElementById('todo-list-map');
             var arrTodoHtml =todo.map(function(item,i){
-                return '<li id ="li-map-'+i+'">' + item + '</li>' + '<button onclick="deleteTodo('+i+')">Delete</button>';
+                return '<li id ="li-map-'+i+'">' + item + '  ' + '<button onclick="deleteTodo('+i+')">Delete</button></li>';
             });
             var content = arrTodoHtml.join('');
             contenL1.innerHTML=content;
