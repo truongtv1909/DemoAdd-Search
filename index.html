@@ -12,126 +12,15 @@
         <h1>Function search by Phone, Name</h1>
         <span>Name </span><input type="text" id="new-name" placeholder="Input name user" /><br>
         <span>Phone </span><input type="text" id="new-phone" placeholder="Phone user" /><br>
-        <button id= "btn-add-user">Add new user</button>
+        <button id = "btn-add-user">Add new user</button>
         <span></span><br>
 
         <input type="text" id="searchInput" placeholder="Search by phone number..." />
+
         <ul id="userList">
-        
         </ul>
-        <!-------------------------------------------------------------- script start ---------------------------------------------------------------------------------- -->
-        <script type="text/javascript">
-        var newTodo = document.getElementById("new-item");
-        var userList = document.getElementById('userList');
-        var searchInput = document.getElementById('searchInput');
-        var btnAddTodo = document.getElementById("btn-add-todo");
-        var btnAddUser = document.getElementById("btn-add-user");
-        var txtNewPhone =document.getElementById("new-phone");
-        var txtNewName =document.getElementById("new-name");
-
-        btnAddUser.addEventListener('click',addUers);
-        btnAddTodo.addEventListener('click',addTodo);
-        
-            var keytodo="keytodo";
-            var keySearch = "keySearch";
-            // sessionStorage.setItem(keySearch,JSON.stringify(users));
-            var UserString = sessionStorage.getItem(keySearch);
-            if(UserString){
-                var users = JSON.parse(UserString);
-            }else{
-                var users = [];
-            }
-            
-            
-      
-            var todoString = sessionStorage.getItem(keytodo);
-            if(todoString){
-                var todo = JSON.parse(todoString);
-            }else{
-                var todo = [];
-            }
-            
-            
-            function addTodo(){
-                // get text from inbox
-                
-                var newText = newTodo.value;
-               
-                if(newText){
-                    todo.push(newText);
-                }
-                
-                render();
-                
-                sessionStorage.setItem(keytodo,JSON.stringify(todo));
-                newTodo.value = '';
-            }
-
-            function deleteTodo(a){
-                var removeLi = document.getElementById('li-map-'+a+'');
-                var xxx = removeLi.value
-                todo.splice(a,1);
-                sessionStorage.setItem(keytodo,JSON.stringify(todo));
-                render();
-            }
-
-            // list by map arr---------------------------------------------------------------------
-            function render(){
-                var contenL1 = document.getElementById('todo-list-map');
-            var arrTodoHtml =todo.map(function(item,i){
-                return '<li id ="li-map-'+i+'">' + item + '  ' + '<button onclick="deleteTodo('+i+')">Delete</button></li>';
-            });
-            var content = arrTodoHtml.join('');
-            contenL1.innerHTML=content;
-            }
-            render(); 
-
-        function renderSearch(us) { // render
-            
-        var content = us.map(function(us) {
-         a = '<li>' + us.name + ' - ' + us.phone + '</li>';
-
-        return a;
-        });
-        var contentrs=content.join('');
-        if(contentrs){
-        userList.innerHTML = contentrs;
-        }else{
-            userList.innerHTML = 'Empty';
-        }
-        }
-
-        searchInput.addEventListener('keyup', function(event) { // search function
-        var value = searchInput.value;
-        var result = users.filter(function(us){
-             var resPhone =  us.phone.includes(value);
-             console.log(us.phone);
-             var resName = us.name.toLocaleLowerCase().includes(value.toLocaleLowerCase());
-             if(resPhone){
-                return resPhone;
-             }if(resName){
-                 return resName;
-             }             
-        });
-        renderSearch(result);
-        });
-
-        function addUers(){
-            var phoneStr = txtNewPhone.value;
-            // var phoneNumber = parseInt(phoneStr);
-            var nameStr = txtNewName.value;
-            var newUser = {name:nameStr,
-                          phone:phoneStr};
-            users.push(newUser);
-            sessionStorage.setItem(keySearch,JSON.stringify(users));
-            renderSearch(users); 
-            // console.log('phone: ' ,phoneStr, 'name: ',nameStr);
-            txtNewName.value='';
-            txtNewPhone.value='';
-        }
-
-        renderSearch(users);          
-
-        </script>
+        <!-------------------------------------------------------------- script start ------------------------------------------------------------------------------------>
+        <script language="javascript" src="user.js"></script>
+        <script language="javascript" src="listtodo.js"></script>
     </body>
 </html>
