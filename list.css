@@ -11,8 +11,8 @@ flex-direction: column;
     height:38px;
     line-height: 38px;
 }
-._list{
-    list-style: none;
+.wrapper{
+    width: 700px;
 }
 .boxlist .boxx{
     display: flex;
@@ -22,6 +22,3 @@ flex-direction: column;
     list-style: none;
     padding: 0;
 }
-/* .ul-map .li-map{
-   
-} */

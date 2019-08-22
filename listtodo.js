@@ -7,7 +7,8 @@ var newTodo = document.getElementById("new-item");
             var keytodo="keytodo";
       
 
-            var todoString = sessionStorage.getItem(keytodo);
+            // var todoString = sessionStorage.getItem(keytodo);
+            var todoString = localStorage.getItem(keytodo);
             if(todoString){
                 var todo = JSON.parse(todoString);
             }else{
@@ -22,11 +23,14 @@ var newTodo = document.getElementById("new-item");
                
                 if(newText){
                     todo.push(newText);
+                }else{
+                    alert('Warning! Please input todosomething...');
+                    newTodo.focus();
                 }
                 
                 render();
                 
-                sessionStorage.setItem(keytodo,JSON.stringify(todo));
+                localStorage.setItem(keytodo,JSON.stringify(todo));
                 newTodo.value = '';
             }
 
@@ -34,7 +38,7 @@ var newTodo = document.getElementById("new-item");
                 var removeLi = document.getElementById('li-map-'+a+'');
                 var xxx = removeLi.value
                 todo.splice(a,1);
-                sessionStorage.setItem(keytodo,JSON.stringify(todo));
+                localStorage.setItem(keytodo,JSON.stringify(todo));
                 render();
             }
 

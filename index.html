@@ -9,6 +9,7 @@
     </head>
     <body>
     <div class="container">
+        <div class="wrapper">
         <h1>Todo - list</h1>
         <div class="boxlist">
             <div class="boxx">
@@ -20,25 +21,27 @@
         </div>
         <!--  -->
         
+
         <!--  -->
         <h1>Function search by Phone, Name</h1>
 
         <div class="boxseach">
             <div class="info p-1">
                 <div class="_lable">Name</div>
-                <div><input class="form-control" type="text" id="new-name" placeholder="Input name user" /></div>
+                <input class="form-control" type="text" id="new-name" placeholder="Input name user" />
             </div>
             <div class="info p-1">
                 <div class="_lable">phone</div>
-                <div><input class="form-control" type="text" id="new-phone" placeholder="Phone user" /></div>
+                <input class="form-control" type="text" id="new-phone" placeholder="Phone user" />
             </div>
             <div class="info p-1"><button class="btn btn-secondary" id = "btn-add-user">Add new user</button></div>
         </div>
 
-        <input type="text" id="searchInput" placeholder="Search by phone number..." />
+        <input class="form-control m-1" type="text" id="searchInput" placeholder="Search by phone number..." />
 
-        <ul class="_list" id="userList">
+        <ul class="list-group m-1" id="userList">
         </ul>
+    </div>
     </div>
         <!-------------------------------------------------------------- script start ------------------------------------------------------------------------------------>
         <script language="javascript" src="user.js"></script>

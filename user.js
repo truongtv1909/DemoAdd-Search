@@ -9,8 +9,10 @@ var txtNewName =document.getElementById("new-name");
 btnAddUser.addEventListener('click',addUers);
 
 var keySearch = "keySearch";
+
+
 // sessionStorage.setItem(keySearch,JSON.stringify(users));
-var UserString = sessionStorage.getItem(keySearch);
+var UserString = localStorage.getItem(keySearch);
 if(UserString){
     var users = JSON.parse(UserString);
 }else{
@@ -20,7 +22,7 @@ if(UserString){
 function renderSearch(us) { // render
             
     var content = us.map(function(us) {
-     a = '<li>' + us.name + ' - ' + us.phone + '</li>';
+     a = '<li class = "list-group-item">' + us.name + ' - ' + us.phone + '</li>';
 
     return a;
     });
@@ -49,14 +51,27 @@ function renderSearch(us) { // render
 
     function addUers(){
         var phoneStr = txtNewPhone.value;
-        // var phoneNumber = parseInt(phoneStr);
         var nameStr = txtNewName.value;
-        var newUser = {name:nameStr,
-                      phone:phoneStr};
-        users.push(newUser);
-        sessionStorage.setItem(keySearch,JSON.stringify(users));
+        if(phoneStr && nameStr){
+            var newUser = {
+                name:nameStr,
+                phone:phoneStr
+            };
+            users.push(newUser);
+        }else{
+            if(nameStr){
+                alert('Warning! Please input user phone');
+                txtNewPhone.focus();
+            }else{
+               
+                alert('Warning! Please input user name');
+                txtNewName.focus();
+            }
+            
+        }
+       
+        localStorage.setItem(keySearch,JSON.stringify(users));
         renderSearch(users); 
-        // console.log('phone: ' ,phoneStr, 'name: ',nameStr);
         txtNewName.value='';
         txtNewPhone.value='';
     }
