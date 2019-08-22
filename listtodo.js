@@ -42,7 +42,7 @@ var newTodo = document.getElementById("new-item");
             function render(){
                 var contenL1 = document.getElementById('todo-list-map');
             var arrTodoHtml =todo.map(function(item,i){
-                return '<li id ="li-map-'+i+'">' + item + '  ' + '<button onclick="deleteTodo('+i+')">Delete</button></li>';
+                return '<li class ="li-map p-1" id ="li-map-'+i+'">' + item + '  ' + '<button class ="btn btn-secondary" onclick="deleteTodo('+i+')">Delete</button></li>';
             });
             var content = arrTodoHtml.join('');
             contenL1.innerHTML=content;

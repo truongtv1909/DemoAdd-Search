@@ -3,22 +3,43 @@
     <head>
         <meta charset="utf8" />
         <title>HTML & Javascript</title>
+        <link rel ="stylesheet" type="text/css" href="./list.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
+    <div class="container">
         <h1>Todo - list</h1>
-        <input type="text" id="new-item" placeholder="input dosomething" /> <button id="btn-add-todo" >add</button>
-        <ul id="todo-list-map">
-        </ul>
+        <div class="boxlist">
+            <div class="boxx">
+                <input class="form-control m-1" type="text" id="new-item" placeholder="input dosomething" />
+                <button class="btn btn-secondary" id="btn-add-todo" >add</button>
+            </div>
+            <ul class="ul-map" id="todo-list-map">
+            </ul>
+        </div>
+        <!--  -->
+        
+        <!--  -->
         <h1>Function search by Phone, Name</h1>
-        <span>Name </span><input type="text" id="new-name" placeholder="Input name user" /><br>
-        <span>Phone </span><input type="text" id="new-phone" placeholder="Phone user" /><br>
-        <button id = "btn-add-user">Add new user</button>
-        <span></span><br>
+
+        <div class="boxseach">
+            <div class="info p-1">
+                <div class="_lable">Name</div>
+                <div><input class="form-control" type="text" id="new-name" placeholder="Input name user" /></div>
+            </div>
+            <div class="info p-1">
+                <div class="_lable">phone</div>
+                <div><input class="form-control" type="text" id="new-phone" placeholder="Phone user" /></div>
+            </div>
+            <div class="info p-1"><button class="btn btn-secondary" id = "btn-add-user">Add new user</button></div>
+        </div>
 
         <input type="text" id="searchInput" placeholder="Search by phone number..." />
 
-        <ul id="userList">
+        <ul class="_list" id="userList">
         </ul>
+    </div>
         <!-------------------------------------------------------------- script start ------------------------------------------------------------------------------------>
         <script language="javascript" src="user.js"></script>
         <script language="javascript" src="listtodo.js"></script>

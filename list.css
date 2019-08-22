@@ -1,0 +1,27 @@
+.boxseach{
+display: flex;
+flex-direction: column;
+}
+.boxseach .info{
+    display: flex;
+    flex-direction: row;
+}
+.boxseach ._lable{
+    width:50px;
+    height:38px;
+    line-height: 38px;
+}
+._list{
+    list-style: none;
+}
+.boxlist .boxx{
+    display: flex;
+
+}
+.ul-map{
+    list-style: none;
+    padding: 0;
+}
+.ul-map .li-map{
+   
+}
