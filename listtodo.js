@@ -6,8 +6,6 @@ var newTodo = document.getElementById("new-item");
         
             var keytodo="keytodo";
       
-
-            // var todoString = sessionStorage.getItem(keytodo);
             var todoString = localStorage.getItem(keytodo);
             if(todoString){
                 var todo = JSON.parse(todoString);
@@ -46,7 +44,8 @@ var newTodo = document.getElementById("new-item");
             function render(){
                 var contenL1 = document.getElementById('todo-list-map');
             var arrTodoHtml =todo.map(function(item,i){
-                return '<li class ="li-map p-1" id ="li-map-'+i+'">' + item + '  ' + '<button class ="btn btn-secondary" onclick="deleteTodo('+i+')">Delete</button></li>';
+                return '<li class ="list-group-item" id ="li-map-'+i+'">' + item + '  ' 
+                + '<button class ="btn btn-outline-secondary _btn-delete" onclick="deleteTodo('+i+')">Delete</button></li>';
             });
             var content = arrTodoHtml.join('');
             contenL1.innerHTML=content;

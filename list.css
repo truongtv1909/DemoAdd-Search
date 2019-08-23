@@ -22,3 +22,9 @@ flex-direction: column;
     list-style: none;
     padding: 0;
 }
+.before::before{
+    content: '0';
+}
+._btn-delete{
+    margin-left: 20px;
+}
